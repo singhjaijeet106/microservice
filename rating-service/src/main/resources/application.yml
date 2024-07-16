@@ -1,11 +1,14 @@
 spring:
  application:
   name: rating-service
-  
+
  cloud:
   inetutils:
    preferred-networks: 127.0.0.1
-   
+
+ config:
+  import: configserver:http://localhost:8050
+     
  data:
   mongodb:
    uri: mongodb://localhost:27017
@@ -27,9 +30,3 @@ server:
  servlet: 
   context-path: /rating-app/api/
     
-eureka:
-  client:
-   register-with-eureka: true
-   fetch-registry: true
-   service-url:
-    defaultZone: http://localhost:8761/eureka
